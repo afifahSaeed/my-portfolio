@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afifah Saeed - Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            line-height: 1.6;
+            overflow-x: hidden;
+          font-family: Arial, sans-serif;
+        background-color: #f9f4f0; /* soft beige */
+        color: #4e3b31; /* muted dark brown */
+
+        }
+        
+        /* Header Styles */
+        header {
+            color: black;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+              background-color: #eacdc3; /* warm peach */
+               color: #3e2e28; /* dark muted brown */
+
+
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        
+        }
+          nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+      }
+         nav a:hover {
+        color: #3e2e28; /* on hover - match heading color */
+      }
+
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, white, white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+      .hero {
+    background: linear-gradient(135deg, #fdf4ef 0%, #f8e3da 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #3a2e2e; /* soft dark brown for readability */
+    position: relative;
+    overflow: hidden;
+}
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideInDown 1s ease-out;
+        }
+        
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+        
+       .cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #DFAF5A, #EDB33C); /* warm gold tones */
+    color: white;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    animation: slideInUp 1s ease-out 0.9s both;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle depth */
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+        
+        /* Section Styles */
+       section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;background: linear-gradient(135deg, #fdf4ef 0%, #f8e3da 100%);
+    border-radius: 12px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.75rem;
+    margin-bottom: 3rem;
+    color: #333;
+    position: relative;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(45deg, #DFAF5A, #EDB33C); /* warm gold tones */
+    border-radius: 2px;
+}
+
+/* About Section */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-text h3 {
+    color: black;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Contact Info Box */
+.contact-info {
+    background: linear-gradient(45deg, #DFAF5A, #EDB33C); /* warm gold tones */
+    padding: 2rem;
+    border-radius: 20px;
+    color: black;
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.contact-info:hover {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.contact-info h4 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+    opacity: 0.95;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    border-radius: 20px 20px 0 0;
+    background: #f8f9fa;
+    padding: 10px;
+}
+
+        
+        .project-content {
+            padding: 2rem;
+        }
+        
+        .input-field {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #f0e8e3;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #ff4081;
+  outline: none;
+}
+
+.cta-button {
+  background: linear-gradient(45deg, #DFAF5A, #EDB33C); 
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+        /* Project Card */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(45deg, #EDB33C, #F3C85C);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+    color: #1E202B;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    background: linear-gradient(45deg, #EDB33C, #F3C85C);
+    color: #1E202B;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+        
+       /* Skills Section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+    
+}
+
+.skill-category {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+     background: linear-gradient(45deg, #EDB33C, #F3C85C);
+  
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.skill-category h3 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.skill-item {
+    background: linear-gradient(45deg, #EDB33C, #F3C85C);
+    color: #1E202B;
+   
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+        
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Background Elements */
+        body {
+           
+  background: linear-gradient(135deg, #fdf6f0 0%, #fbe8e2 100%);
+  min-height: 100vh;
+  color: #2f2f2f;
+        }
+        
+        .section-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">AFIFAH SAEED</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>AFIFAH SAEED</h1>
+            <div class="tagline">SOFTWARE ENGINEER</div>
+            <p>Passionate about web development and programming, with hands-on experience in HTML, CSS, JavaScript, Python and Java. I build responsive user interfaces and dynamic applications with a strong focus on clean code, usability and problem-solving. As a proactive learner and reliable team player, I enjoy collaborating on projects and continuously seeking opportunities to grow and take on new challenges.</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="section-bg">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="contact-info">
+                <h4>Get In Touch</h4>
+                <p>📧 afifasaeed2002@gmail.com</p>
+                <p>📍 Lahore, Pakistan</p>
+                <p>🔗 LinkedIn: www.linkedin.com/in/afifah-saeed-804040301</p>
+            </div>
+            <div class="about-text">
+                <h3>Software Engineer & Problem Solver</h3>
+                <p style="text-align: justify;">I’m a motivated and creative Software Engineering graduate with a strong passion for building user-friendly websites and intelligent applications. Over the past few years, I’ve developed a solid skill set in front-end development using HTML, CSS and JavaScript, along with hands-on experience in Python, C++ and Java. </p>
+                <p style="text-align: justify;">I’ve worked on a variety of meaningful projects, including an AI-powered Electronic Health Record (EHR) system, a travel booking application and a customer segmentation tool using machine learning. These experiences have helped me understand how to turn ideas into practical, real-world solutions that solve problems and improve user experiences.</p>
+           <p style="text-align: justify;">I'm always eager to learn new things, collaborate with others and push my limits. I love clean design, responsive layouts and writing code that not only works well but is also easy to understand and maintain. Whether I’m working independently or as part of a team, I bring focus, responsibility and a positive attitude to everything I do.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="ehr.png" alt="Hospital Management System" class="project-image">
+                <div class="project-content">
+                    <h3>AI-BASED ELECTRONIC HEALTH RECORD (EHR) SYSTEM </h3>
+                    <p style="text-align: justify;">Developed a web-based EHR system with separate doctor and patient dashboards.Enabled secure login, health record entry, and PDF report generation.Integrated K-Means for patient clustering and Logistic Regression for disease risk prediction.Implemented real-time alerts for critical health indicators to notify doctors instantly.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Logistic Regression</span>
+                         <span class="tech-tag">K-Means Clustering</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="Screenshot 2024-03-03 134448.png" alt="Tourism Recommendation System" class="project-image">
+                <div class="project-content">
+                    <h3>TRAVEL BOOKING APP</h3>
+                    <p style="text-align: justify;">Developed a mobile application to book travel trips, featuring a seamless user interface and essential CRUD operations.Responsive and user-friendly interface,
+                     Booking Functionality, Firebase Integration for User authentication, real-time database for CRUD operations,Data Management.
+</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Android Studio</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag"> Java</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <img src="image.png"  alt="Inventory System Mobile App" class="project-image">
+                <div class="project-content">
+                    <h3>CUSTOMER SEGMENTATION USING PYTHON</h3>
+                    <p style="text-align: jstify;">Developed a customer segmentation model using K-means clustering in Jupyter Notebook. This project involved data preprocessing, exploratory analysis and clustering to identify distinct customer groups, providing actionable insights for targeted marketing and improved customer engagement.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Jupyter Notebook</span>
+                        <span class="tech-tag">K-Means Clustering</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section-bg">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skills-list">
+                    <span class="skill-item">HTML</span>
+                    <span class="skill-item">CSS</span>
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">Java</span>
+                    <span class="skill-item">C++</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <div class="skills-list">
+                    <span class="skill-item">Front-End HTML</span>
+                    <span class="skill-item">CSS</span>
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">Back-End Flask</span>
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">Java</span>
+                    <span class="skill-item">Android Studio</span>
+                    <span class="skill-item">Other Responsive Design</span>
+                    <span class="skill-item">UI/UX</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Spoken Languages</h3>
+                <div class="skills-list">
+                    <span class="skill-item">English</span>
+                    <span class="skill-item">Urdu</span>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="contact">
+  <h2 class="section-title">Let's Connect</h2>
+  <div style="max-width: 800px; margin: 0 auto; padding: 2rem;">
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      
+      <!-- Contact Info -->
+      <div>
+        <h3 style="color: #b2675e; margin-bottom: 1rem; font-size: 1.5rem;">Get In Touch</h3>
+        <p style="font-size: 1.1rem; color: #5c4b41; margin-bottom: 2rem; line-height: 1.6;">
+          Ready to bring your ideas to life? Let's discuss how we can work together to create something amazing.
+        </p>
+        <div>
+          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+            <span style="color: #b2675e; margin-right: 10px; font-size: 1.2rem;">📧</span>
+            <span style="color: #3e2e28;">afifasaeed2002@gmail.com</span>
+          </div>
+          <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+            <span style="color: #b2675e; margin-right: 10px; font-size: 1.2rem;">🔗</span>
+            <a href="https://www.linkedin.com/in/afifah-saeed-804040301/" target="_blank" style="color: #b2675e; text-decoration: none;">LinkedIn Profile</a>
+          </div>
+        </div>
+      </div>
+
+    
+    <!-- LinkedIn CTA -->
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="https://www.linkedin.com/in/afifah-saeed-804040301/" class="cta-button" target="_blank">Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>
