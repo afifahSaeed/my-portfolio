@@ -40,6 +40,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            position: relative;
         }
         
         .logo {
@@ -73,12 +74,13 @@
             transform: translateY(-2px);
         }
 
-        /* Mobile Menu */
+        /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
             flex-direction: column;
             cursor: pointer;
             padding: 0.5rem;
+            z-index: 1001;
         }
 
         .mobile-menu-btn span {
@@ -90,14 +92,24 @@
             border-radius: 2px;
         }
 
+        /* Mobile Menu */
         .mobile-menu {
-            display: none;
             position: absolute;
             top: 100%;
             left: 0;
             width: 100%;
             background: #eacdc3;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(-10px);
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
         }
 
         .mobile-menu ul {
@@ -126,7 +138,7 @@
             color: #3a2e2e;
             position: relative;
             overflow: hidden;
-            padding-top: 80px; /* Account for fixed header */
+            padding-top: 80px;
         }
 
         .hero::before {
@@ -316,7 +328,6 @@
             padding: 2rem;
         }
 
-        /* Project Card */
         .project-card::before {
             content: '';
             position: absolute;
@@ -468,7 +479,6 @@
 
         /* Mobile Responsive Design */
         @media (max-width: 768px) {
-            /* Header adjustments */
             nav {
                 padding: 0 1rem;
             }
@@ -477,7 +487,7 @@
                 font-size: 1.4rem;
             }
 
-            nav ul {
+            nav > ul {
                 display: none;
             }
 
@@ -485,11 +495,6 @@
                 display: flex;
             }
 
-            .mobile-menu.active {
-                display: block;
-            }
-
-            /* Hero section mobile */
             .hero {
                 padding: 100px 1rem 2rem;
                 min-height: 100vh;
@@ -516,7 +521,6 @@
                 font-size: 0.9rem;
             }
 
-            /* Section adjustments */
             section {
                 padding: 3rem 1rem;
                 margin-bottom: 1rem;
